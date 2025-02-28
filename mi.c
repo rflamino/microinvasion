@@ -795,7 +795,7 @@ static void UpdatePlayerBullet(void)
                 g_PowerUpActive = true;
                 g_PowerUpX = g_EnemyX[i];
                 g_PowerUpY = g_EnemyY[i];
-                g_PowerUpType = (Math_GetRandom16() % 3); // 0 = shield, 1 = wall–walk, 2 = gravity
+                g_PowerUpType = (PowerUpType)(Math_GetRandom16() % 3); // 0 = shield, 1 = wall–walk, 2 = gravity
                 //g_PowerUpType = 1; // 0 = shield, 1 = wall–walk, 2 = gravity
             }
             break;
@@ -917,15 +917,15 @@ static void UpdatePowerUp(void)
         return;
 
     // Choose the appropriate sprite pattern based on the power–up type.
-    if (g_PowerUpType == 0)
+    if (g_PowerUpType == POWERUP_SLOWDOWN)
     {
         VDP_SetSpritePattern(SPRID_POWERUP, PATTERN_POWERUP);
     }
-    else if (g_PowerUpType == 1)
+    else if (g_PowerUpType == POWERUP_WALLWALK)
     {
         VDP_SetSpritePattern(SPRID_POWERUP, PATTERN_WALLWALK_POWERUP);
     }
-    else if (g_PowerUpType == 2)  // gravity powerup
+    else if (g_PowerUpType == POWERUP_GRAVITY)  // gravity powerup
     {
         VDP_SetSpritePattern(SPRID_POWERUP, PATTERN_GRAVITY_POWERUP);
     }

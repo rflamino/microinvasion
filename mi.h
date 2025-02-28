@@ -644,11 +644,18 @@ extern const Menu g_Menus[];
 // NEW: Duration for the wall–walk power–up.
 #define POWERUP_WALLWALK_TIME   500   // Frames the wall–walk powerup lasts
 
+typedef enum {
+    POWERUP_SLOWDOWN,
+    POWERUP_WALLWALK,
+    POWERUP_GRAVITY
+} PowerUpType;
+
 // NEW: New globals for wall–walking mode.
 static bool g_WallWalkActive = false;  // When true, the ship “sticks” to a wall.
 static u16   g_WallWalkTimer = 0;         // Duration timer for wall–walk mode.
 static u8   g_PlayerY = SHIP_ROW;        // Player vertical position (normally SHIP_ROW).
-static u8   g_PowerUpType = 0;           // 0 = Shield power–up, 1 = Wall–walk power–up.
+static PowerUpType g_PowerUpType = POWERUP_SLOWDOWN;
+
 
 // NEW globals for bullet behavior when firing sideways:
 static bool g_BulletSideways = false;       // true when the active bullet is fired sideways
