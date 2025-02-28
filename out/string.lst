@@ -1,0 +1,1058 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.2.0 #13081 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module string
+                                      6 	.optsdcc -mz80
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _String_FromUInt8ZT
+                                     12 	.globl _String_FromUInt8
+                                     13 	.globl _String_FromUInt16ZT
+                                     14 	.globl _String_FromUInt16
+                                     15 	.globl _String_Format
+                                     16 ;--------------------------------------------------------
+                                     17 ; special function registers
+                                     18 ;--------------------------------------------------------
+                                     19 ;--------------------------------------------------------
+                                     20 ; ram data
+                                     21 ;--------------------------------------------------------
+                                     22 	.area _DATA
+                                     23 ;--------------------------------------------------------
+                                     24 ; ram data
+                                     25 ;--------------------------------------------------------
+                                     26 	.area _INITIALIZED
+                                     27 ;--------------------------------------------------------
+                                     28 ; absolute external ram data
+                                     29 ;--------------------------------------------------------
+                                     30 	.area _DABS (ABS)
+                                     31 ;--------------------------------------------------------
+                                     32 ; global & static initialisations
+                                     33 ;--------------------------------------------------------
+                                     34 	.area _HOME
+                                     35 	.area _GSINIT
+                                     36 	.area _GSFINAL
+                                     37 	.area _GSINIT
+                                     38 ;--------------------------------------------------------
+                                     39 ; Home
+                                     40 ;--------------------------------------------------------
+                                     41 	.area _HOME
+                                     42 	.area _HOME
+                                     43 ;--------------------------------------------------------
+                                     44 ; code
+                                     45 ;--------------------------------------------------------
+                                     46 	.area _CODE
+                                     47 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:29: void String_FromUInt8ZT(u8 value, c8* string)
+                                     48 ;	---------------------------------
+                                     49 ; Function String_FromUInt8ZT
+                                     50 ; ---------------------------------
+    00000000                         51 _String_FromUInt8ZT::
+                                     52 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:37: __endasm;
+    00000000 CDr16r00         [17]   53 	call	_String_FromUInt8
+    00000003 AF               [ 4]   54 	xor	a
+    00000004 12               [ 7]   55 	ld	(de), a
+                                     56 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:38: }
+    00000005 C9               [10]   57 	ret
+    00000006                         58 _g_HexChar:
+    00000006 30                      59 	.db #0x30	; 48	'0'
+    00000007 31                      60 	.db #0x31	; 49	'1'
+    00000008 32                      61 	.db #0x32	; 50	'2'
+    00000009 33                      62 	.db #0x33	; 51	'3'
+    0000000A 34                      63 	.db #0x34	; 52	'4'
+    0000000B 35                      64 	.db #0x35	; 53	'5'
+    0000000C 36                      65 	.db #0x36	; 54	'6'
+    0000000D 37                      66 	.db #0x37	; 55	'7'
+    0000000E 38                      67 	.db #0x38	; 56	'8'
+    0000000F 39                      68 	.db #0x39	; 57	'9'
+    00000010 41                      69 	.db #0x41	; 65	'A'
+    00000011 42                      70 	.db #0x42	; 66	'B'
+    00000012 43                      71 	.db #0x43	; 67	'C'
+    00000013 44                      72 	.db #0x44	; 68	'D'
+    00000014 45                      73 	.db #0x45	; 69	'E'
+    00000015 46                      74 	.db #0x46	; 70	'F'
+                                     75 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:42: void String_FromUInt8(u8 value, c8* string)
+                                     76 ;	---------------------------------
+                                     77 ; Function String_FromUInt8
+                                     78 ; ---------------------------------
+    00000016                         79 _String_FromUInt8::
+                                     80 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:67: __endasm;
+    00000016                         81 	DispA:
+    00000016 0E 9C            [ 7]   82 	ld	c, #-100
+    00000018 CDr22r00         [17]   83 	call	Na1
+    0000001B 0E F6            [ 7]   84 	ld	c, #-10
+    0000001D CDr22r00         [17]   85 	call	Na1
+    00000020 0E FF            [ 7]   86 	ld	c, #-1
+    00000022                         87 	Na1:
+    00000022 06 2F            [ 7]   88 	ld	b, #'0'-1
+    00000024                         89 	Na2:
+    00000024 04               [ 4]   90 	inc	b
+    00000025 81               [ 4]   91 	add	a, c
+    00000026 38 FC            [12]   92 	jr	c, Na2
+    00000028 91               [ 4]   93 	sub	c
+    00000029 08               [ 4]   94 	ex	af, af'		; '
+    0000002A 78               [ 4]   95 	ld	a, b
+    0000002B 12               [ 7]   96 	ld	(de), a
+    0000002C 13               [ 6]   97 	inc	de
+    0000002D 08               [ 4]   98 	ex	af, af'		; '
+    0000002E C9               [10]   99 	ret
+                                    100 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:69: }
+    0000002F C9               [10]  101 	ret
+                                    102 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:76: void String_FromUInt16ZT(u16 value, c8* string)
+                                    103 ;	---------------------------------
+                                    104 ; Function String_FromUInt16ZT
+                                    105 ; ---------------------------------
+    00000030                        106 _String_FromUInt16ZT::
+                                    107 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:84: __endasm;
+    00000030 CDr36r00         [17]  108 	call	_String_FromUInt16
+    00000033 AF               [ 4]  109 	xor	a
+    00000034 12               [ 7]  110 	ld	(de), a
+                                    111 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:85: }
+    00000035 C9               [10]  112 	ret
+                                    113 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:89: void String_FromUInt16(u16 value, c8* string)
+                                    114 ;	---------------------------------
+                                    115 ; Function String_FromUInt16
+                                    116 ; ---------------------------------
+    00000036                        117 _String_FromUInt16::
+                                    118 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:116: __endasm;
+    00000036                        119 	Num2Dec:
+    00000036 01 F0 D8         [10]  120 	ld	bc, #-10000
+    00000039 CDr4Er00         [17]  121 	call	Num1
+    0000003C 01 18 FC         [10]  122 	ld	bc, #-1000
+    0000003F CDr4Er00         [17]  123 	call	Num1
+    00000042 01 9C FF         [10]  124 	ld	bc, #-100
+    00000045 CDr4Er00         [17]  125 	call	Num1
+    00000048 0E F6            [ 7]  126 	ld	c, #-10
+    0000004A CDr4Er00         [17]  127 	call	Num1
+    0000004D 48               [ 4]  128 	ld	c, b
+    0000004E                        129 	Num1:
+    0000004E 3E 2F            [ 7]  130 	ld	a, #'0'-1
+    00000050                        131 	Num2:
+    00000050 3C               [ 4]  132 	inc	a
+    00000051 09               [11]  133 	add	hl, bc
+    00000052 38 FC            [12]  134 	jr	c, Num2
+    00000054 ED 42            [15]  135 	sbc	hl, bc
+    00000056 12               [ 7]  136 	ld	(de), a
+    00000057 13               [ 6]  137 	inc	de
+    00000058 C9               [10]  138 	ret
+                                    139 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:117: }
+    00000059 C9               [10]  140 	ret
+                                    141 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:129: void String_Format(c8* dest, const c8* format, ...)
+                                    142 ;	---------------------------------
+                                    143 ; Function String_Format
+                                    144 ; ---------------------------------
+    0000005A                        145 _String_Format::
+    0000005A DD E5            [15]  146 	push	ix
+    0000005C DD 21 00 00      [14]  147 	ld	ix,#0
+    00000060 DD 39            [15]  148 	add	ix,sp
+    00000062 21 DD FF         [10]  149 	ld	hl, #-35
+    00000065 39               [11]  150 	add	hl, sp
+    00000066 F9               [ 6]  151 	ld	sp, hl
+                                    152 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:132: va_start(args, format);
+    00000067 21 2B 00         [10]  153 	ld	hl, #43
+    0000006A 39               [11]  154 	add	hl, sp
+    0000006B DD 75 ED         [19]  155 	ld	-19 (ix), l
+    0000006E DD 74 EE         [19]  156 	ld	-18 (ix), h
+                                    157 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:135: const c8* ptr = format;
+    00000071 DD 7E 06         [19]  158 	ld	a, 6 (ix)
+    00000074 DD 77 F9         [19]  159 	ld	-7 (ix), a
+    00000077 DD 7E 07         [19]  160 	ld	a, 7 (ix)
+    0000007A DD 77 FA         [19]  161 	ld	-6 (ix), a
+                                    162 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:136: while(*ptr != 0)
+    0000007D                        163 00166$:
+    0000007D DD 6E F9         [19]  164 	ld	l, -7 (ix)
+    00000080 DD 66 FA         [19]  165 	ld	h, -6 (ix)
+    00000083 7E               [ 7]  166 	ld	a, (hl)
+    00000084 DD 77 FF         [19]  167 	ld	-1 (ix), a
+    00000087 B7               [ 4]  168 	or	a, a
+    00000088 CArEAr06         [10]  169 	jp	Z, 00168$
+                                    170 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:138: if(*ptr == '%')
+    0000008B DD 7E FF         [19]  171 	ld	a, -1 (ix)
+    0000008E D6 25            [ 7]  172 	sub	a, #0x25
+    00000090 C2rB5r06         [10]  173 	jp	NZ,00164$
+                                    174 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:140: ptr++;
+    00000093 DD 4E F9         [19]  175 	ld	c, -7 (ix)
+    00000096 DD 46 FA         [19]  176 	ld	b, -6 (ix)
+    00000099 03               [ 6]  177 	inc	bc
+                                    178 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:143: u8 pad = STRINT_PAD_NONE;
+    0000009A DD 36 EF 00      [19]  179 	ld	-17 (ix), #0x00
+                                    180 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:144: u8 len = 0;
+    0000009E DD 36 F0 00      [19]  181 	ld	-16 (ix), #0x00
+                                    182 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:145: if(*ptr == '0')
+    000000A2 0A               [ 7]  183 	ld	a, (bc)
+    000000A3 5F               [ 4]  184 	ld	e, a
+    000000A4 D6 30            [ 7]  185 	sub	a, #0x30
+    000000A6 20 08            [12]  186 	jr	NZ, 00105$
+                                    187 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:147: pad = STRINT_PAD_ZERO;
+    000000A8 DD 36 EF 01      [19]  188 	ld	-17 (ix), #0x01
+                                    189 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:148: ptr++;
+    000000AC 03               [ 6]  190 	inc	bc
+    000000AD C3rC5r00         [10]  191 	jp	00190$
+    000000B0                        192 00105$:
+                                    193 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:150: else if((*ptr >= '1') && (*ptr <= '9'))
+    000000B0 7B               [ 4]  194 	ld	a, e
+    000000B1 D6 31            [ 7]  195 	sub	a, #0x31
+    000000B3 38 10            [12]  196 	jr	C, 00190$
+    000000B5 3E 39            [ 7]  197 	ld	a, #0x39
+    000000B7 93               [ 4]  198 	sub	a, e
+    000000B8 38 0B            [12]  199 	jr	C, 00190$
+                                    200 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:152: pad = STRINT_PAD_SPACE;
+    000000BA DD 36 EF 02      [19]  201 	ld	-17 (ix), #0x02
+                                    202 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:153: len = *ptr - '0';
+    000000BE 7B               [ 4]  203 	ld	a, e
+    000000BF C6 D0            [ 7]  204 	add	a, #0xd0
+    000000C1 DD 77 F0         [19]  205 	ld	-16 (ix), a
+                                    206 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:154: ptr++;
+    000000C4 03               [ 6]  207 	inc	bc
+                                    208 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:156: while((*ptr >= '0') && (*ptr <= '9'))
+    000000C5                        209 00190$:
+    000000C5 DD 71 FE         [19]  210 	ld	-2 (ix), c
+    000000C8 DD 70 FF         [19]  211 	ld	-1 (ix), b
+    000000CB                        212 00108$:
+    000000CB DD 6E FE         [19]  213 	ld	l, -2 (ix)
+    000000CE DD 66 FF         [19]  214 	ld	h, -1 (ix)
+    000000D1 4E               [ 7]  215 	ld	c, (hl)
+    000000D2 79               [ 4]  216 	ld	a, c
+    000000D3 D6 30            [ 7]  217 	sub	a, #0x30
+    000000D5 38 1F            [12]  218 	jr	C, 00229$
+    000000D7 3E 39            [ 7]  219 	ld	a, #0x39
+    000000D9 91               [ 4]  220 	sub	a, c
+    000000DA 38 1A            [12]  221 	jr	C, 00229$
+                                    222 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:158: len *= 10;
+    000000DC DD 6E F0         [19]  223 	ld	l, -16 (ix)
+                                    224 ;	spillPairReg hl
+                                    225 ;	spillPairReg hl
+    000000DF 5D               [ 4]  226 	ld	e, l
+    000000E0 29               [11]  227 	add	hl, hl
+    000000E1 29               [11]  228 	add	hl, hl
+    000000E2 19               [11]  229 	add	hl, de
+    000000E3 29               [11]  230 	add	hl, hl
+                                    231 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:159: len += *ptr - '0';
+    000000E4 79               [ 4]  232 	ld	a, c
+    000000E5 C6 D0            [ 7]  233 	add	a, #0xd0
+    000000E7 85               [ 4]  234 	add	a, l
+    000000E8 DD 77 F0         [19]  235 	ld	-16 (ix), a
+                                    236 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:160: ptr++;
+    000000EB DD 34 FE         [23]  237 	inc	-2 (ix)
+    000000EE 20 DB            [12]  238 	jr	NZ, 00108$
+    000000F0 DD 34 FF         [23]  239 	inc	-1 (ix)
+    000000F3 C3rCBr00         [10]  240 	jp	00108$
+    000000F6                        241 00229$:
+    000000F6 DD 7E FE         [19]  242 	ld	a, -2 (ix)
+    000000F9 DD 77 F9         [19]  243 	ld	-7 (ix), a
+    000000FC DD 7E FF         [19]  244 	ld	a, -1 (ix)
+    000000FF DD 77 FA         [19]  245 	ld	-6 (ix), a
+                                    246 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:164: switch(*ptr)
+    00000102 79               [ 4]  247 	ld	a,c
+    00000103 FE 25            [ 7]  248 	cp	a,#0x25
+    00000105 28 31            [12]  249 	jr	Z, 00111$
+    00000107 FE 44            [ 7]  250 	cp	a,#0x44
+    00000109 28 3F            [12]  251 	jr	Z, 00115$
+    0000010B FE 49            [ 7]  252 	cp	a,#0x49
+    0000010D 28 3B            [12]  253 	jr	Z, 00115$
+    0000010F FE 55            [ 7]  254 	cp	a,#0x55
+    00000111 CArDEr06         [10]  255 	jp	Z,00165$
+    00000114 FE 58            [ 7]  256 	cp	a,#0x58
+    00000116 CAr75r03         [10]  257 	jp	Z,00133$
+    00000119 FE 63            [ 7]  258 	cp	a,#0x63
+    0000011B CAr59r06         [10]  259 	jp	Z,00159$
+    0000011E FE 64            [ 7]  260 	cp	a,#0x64
+    00000120 28 28            [12]  261 	jr	Z, 00115$
+    00000122 FE 69            [ 7]  262 	cp	a,#0x69
+    00000124 28 24            [12]  263 	jr	Z, 00115$
+    00000126 FE 73            [ 7]  264 	cp	a,#0x73
+    00000128 CAr7Br06         [10]  265 	jp	Z,00160$
+    0000012B FE 75            [ 7]  266 	cp	a,#0x75
+    0000012D CArDEr06         [10]  267 	jp	Z,00165$
+    00000130 D6 78            [ 7]  268 	sub	a, #0x78
+    00000132 CArE8r04         [10]  269 	jp	Z,00150$
+    00000135 C3rDEr06         [10]  270 	jp	00165$
+                                    271 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:166: case '%':
+    00000138                        272 00111$:
+                                    273 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:167: *dest++ = '%';
+    00000138 DD 6E 04         [19]  274 	ld	l, 4 (ix)
+                                    275 ;	spillPairReg hl
+                                    276 ;	spillPairReg hl
+    0000013B DD 66 05         [19]  277 	ld	h, 5 (ix)
+                                    278 ;	spillPairReg hl
+                                    279 ;	spillPairReg hl
+    0000013E 36 25            [10]  280 	ld	(hl), #0x25
+    00000140 23               [ 6]  281 	inc	hl
+    00000141 DD 75 04         [19]  282 	ld	4 (ix), l
+    00000144 DD 74 05         [19]  283 	ld	5 (ix), h
+                                    284 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:168: break;
+    00000147 C3rDEr06         [10]  285 	jp	00165$
+                                    286 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:176: case 'd':
+    0000014A                        287 00115$:
+                                    288 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:180: if((*ptr == 'I') || (*ptr == 'D'))
+    0000014A DD 6E F9         [19]  289 	ld	l, -7 (ix)
+    0000014D DD 66 FA         [19]  290 	ld	h, -6 (ix)
+    00000150 7E               [ 7]  291 	ld	a, (hl)
+    00000151 DD 77 FF         [19]  292 	ld	-1 (ix), a
+    00000154 D6 49            [ 7]  293 	sub	a, #0x49
+    00000156 28 07            [12]  294 	jr	Z, 00116$
+    00000158 DD 7E FF         [19]  295 	ld	a, -1 (ix)
+    0000015B D6 44            [ 7]  296 	sub	a, #0x44
+    0000015D 20 4B            [12]  297 	jr	NZ, 00117$
+    0000015F                        298 00116$:
+                                    299 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:181: val = (i32)va_arg(args, i32);
+    0000015F DD 7E ED         [19]  300 	ld	a, -19 (ix)
+    00000162 C6 04            [ 7]  301 	add	a, #0x04
+    00000164 DD 77 FC         [19]  302 	ld	-4 (ix), a
+    00000167 DD 7E EE         [19]  303 	ld	a, -18 (ix)
+    0000016A CE 00            [ 7]  304 	adc	a, #0x00
+    0000016C DD 77 FD         [19]  305 	ld	-3 (ix), a
+    0000016F DD 7E FC         [19]  306 	ld	a, -4 (ix)
+    00000172 DD 77 ED         [19]  307 	ld	-19 (ix), a
+    00000175 DD 7E FD         [19]  308 	ld	a, -3 (ix)
+    00000178 DD 77 EE         [19]  309 	ld	-18 (ix), a
+    0000017B DD 7E FC         [19]  310 	ld	a, -4 (ix)
+    0000017E C6 FC            [ 7]  311 	add	a, #0xfc
+    00000180 DD 77 FE         [19]  312 	ld	-2 (ix), a
+    00000183 DD 7E FD         [19]  313 	ld	a, -3 (ix)
+    00000186 CE FF            [ 7]  314 	adc	a, #0xff
+    00000188 DD 77 FF         [19]  315 	ld	-1 (ix), a
+    0000018B DD 7E FE         [19]  316 	ld	a, -2 (ix)
+    0000018E DD 77 F7         [19]  317 	ld	-9 (ix), a
+    00000191 DD 7E FF         [19]  318 	ld	a, -1 (ix)
+    00000194 DD 77 F8         [19]  319 	ld	-8 (ix), a
+    00000197 DD 5E F7         [19]  320 	ld	e, -9 (ix)
+    0000019A DD 56 F8         [19]  321 	ld	d, -8 (ix)
+    0000019D 21 1E 00         [10]  322 	ld	hl, #30
+    000001A0 39               [11]  323 	add	hl, sp
+    000001A1 EB               [ 4]  324 	ex	de, hl
+    000001A2 01 04 00         [10]  325 	ld	bc, #0x0004
+    000001A5 ED B0            [21]  326 	ldir
+    000001A7 C3rF9r01         [10]  327 	jp	00118$
+    000001AA                        328 00117$:
+                                    329 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:183: val = (i32)va_arg(args, i16);
+    000001AA DD 7E ED         [19]  330 	ld	a, -19 (ix)
+    000001AD C6 02            [ 7]  331 	add	a, #0x02
+    000001AF DD 77 FC         [19]  332 	ld	-4 (ix), a
+    000001B2 DD 7E EE         [19]  333 	ld	a, -18 (ix)
+    000001B5 CE 00            [ 7]  334 	adc	a, #0x00
+    000001B7 DD 77 FD         [19]  335 	ld	-3 (ix), a
+    000001BA DD 7E FC         [19]  336 	ld	a, -4 (ix)
+    000001BD DD 77 ED         [19]  337 	ld	-19 (ix), a
+    000001C0 DD 7E FD         [19]  338 	ld	a, -3 (ix)
+    000001C3 DD 77 EE         [19]  339 	ld	-18 (ix), a
+    000001C6 DD 7E FC         [19]  340 	ld	a, -4 (ix)
+    000001C9 C6 FE            [ 7]  341 	add	a, #0xfe
+    000001CB DD 77 FE         [19]  342 	ld	-2 (ix), a
+    000001CE DD 7E FD         [19]  343 	ld	a, -3 (ix)
+    000001D1 CE FF            [ 7]  344 	adc	a, #0xff
+    000001D3 DD 77 FF         [19]  345 	ld	-1 (ix), a
+    000001D6 DD 6E FE         [19]  346 	ld	l, -2 (ix)
+    000001D9 DD 66 FF         [19]  347 	ld	h, -1 (ix)
+    000001DC 7E               [ 7]  348 	ld	a, (hl)
+    000001DD DD 77 F7         [19]  349 	ld	-9 (ix), a
+    000001E0 23               [ 6]  350 	inc	hl
+    000001E1 7E               [ 7]  351 	ld	a, (hl)
+    000001E2 DD 77 F8         [19]  352 	ld	-8 (ix), a
+    000001E5 DD 7E F7         [19]  353 	ld	a, -9 (ix)
+    000001E8 DD 77 FB         [19]  354 	ld	-5 (ix), a
+    000001EB DD 7E F8         [19]  355 	ld	a, -8 (ix)
+    000001EE DD 77 FC         [19]  356 	ld	-4 (ix), a
+    000001F1 07               [ 4]  357 	rlca
+    000001F2 9F               [ 4]  358 	sbc	a, a
+    000001F3 DD 77 FD         [19]  359 	ld	-3 (ix), a
+    000001F6 DD 77 FE         [19]  360 	ld	-2 (ix), a
+    000001F9                        361 00118$:
+                                    362 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:188: if(val < 0)
+    000001F9 DD CB FE 7E      [20]  363 	bit	7, -2 (ix)
+    000001FD 28 2D            [12]  364 	jr	Z, 00121$
+                                    365 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:190: *dest++ = '-';
+    000001FF DD 6E 04         [19]  366 	ld	l, 4 (ix)
+                                    367 ;	spillPairReg hl
+                                    368 ;	spillPairReg hl
+    00000202 DD 66 05         [19]  369 	ld	h, 5 (ix)
+                                    370 ;	spillPairReg hl
+                                    371 ;	spillPairReg hl
+    00000205 36 2D            [10]  372 	ld	(hl), #0x2d
+    00000207 23               [ 6]  373 	inc	hl
+    00000208 DD 75 04         [19]  374 	ld	4 (ix), l
+    0000020B DD 74 05         [19]  375 	ld	5 (ix), h
+                                    376 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:191: val = -val;
+    0000020E AF               [ 4]  377 	xor	a, a
+    0000020F DD 96 FB         [19]  378 	sub	a, -5 (ix)
+    00000212 DD 77 FB         [19]  379 	ld	-5 (ix), a
+    00000215 3E 00            [ 7]  380 	ld	a, #0x00
+    00000217 DD 9E FC         [19]  381 	sbc	a, -4 (ix)
+    0000021A DD 77 FC         [19]  382 	ld	-4 (ix), a
+    0000021D 3E 00            [ 7]  383 	ld	a, #0x00
+    0000021F DD 9E FD         [19]  384 	sbc	a, -3 (ix)
+    00000222 DD 77 FD         [19]  385 	ld	-3 (ix), a
+    00000225 9F               [ 4]  386 	sbc	a, a
+    00000226 DD 96 FE         [19]  387 	sub	a, -2 (ix)
+    00000229 DD 77 FE         [19]  388 	ld	-2 (ix), a
+    0000022C                        389 00121$:
+                                    390 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:194: c8* ptr = str;
+                                    391 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:195: *ptr = 0;
+    0000022C DD 36 DD 00      [19]  392 	ld	-35 (ix), #0x00
+                                    393 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:197: while(val >= 10)
+    00000230 E5               [11]  394 	push	hl
+    00000231 F5               [11]  395 	push	af
+    00000232 21 04 00         [10]  396 	ld	hl, #4
+    00000235 39               [11]  397 	add	hl, sp
+    00000236 DD 75 F1         [19]  398 	ld	-15 (ix), l
+    00000239 21 04 00         [10]  399 	ld	hl, #4
+    0000023C 39               [11]  400 	add	hl, sp
+    0000023D F1               [10]  401 	pop	af
+    0000023E DD 74 F2         [19]  402 	ld	-14 (ix), h
+    00000241 E1               [10]  403 	pop	hl
+    00000242 DD 36 FF 01      [19]  404 	ld	-1 (ix), #0x01
+    00000246                        405 00122$:
+                                    406 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:199: *++ptr = '0' + (val % 10);
+    00000246 DD 7E F1         [19]  407 	ld	a, -15 (ix)
+    00000249 C6 01            [ 7]  408 	add	a, #0x01
+    0000024B DD 77 F3         [19]  409 	ld	-13 (ix), a
+    0000024E DD 7E F2         [19]  410 	ld	a, -14 (ix)
+    00000251 CE 00            [ 7]  411 	adc	a, #0x00
+    00000253 DD 77 F4         [19]  412 	ld	-12 (ix), a
+                                    413 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:197: while(val >= 10)
+    00000256 DD 7E FB         [19]  414 	ld	a, -5 (ix)
+    00000259 D6 0A            [ 7]  415 	sub	a, #0x0a
+    0000025B DD 7E FC         [19]  416 	ld	a, -4 (ix)
+    0000025E DE 00            [ 7]  417 	sbc	a, #0x00
+    00000260 DD 7E FD         [19]  418 	ld	a, -3 (ix)
+    00000263 DE 00            [ 7]  419 	sbc	a, #0x00
+    00000265 DD 7E FE         [19]  420 	ld	a, -2 (ix)
+    00000268 17               [ 4]  421 	rla
+    00000269 3F               [ 4]  422 	ccf
+    0000026A 1F               [ 4]  423 	rra
+    0000026B DE 80            [ 7]  424 	sbc	a, #0x80
+    0000026D 38 69            [12]  425 	jr	C, 00230$
+                                    426 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:199: *++ptr = '0' + (val % 10);
+    0000026F DD 7E F3         [19]  427 	ld	a, -13 (ix)
+    00000272 DD 77 F1         [19]  428 	ld	-15 (ix), a
+    00000275 DD 7E F4         [19]  429 	ld	a, -12 (ix)
+    00000278 DD 77 F2         [19]  430 	ld	-14 (ix), a
+    0000027B 21 00 00         [10]  431 	ld	hl, #0x0000
+    0000027E E5               [11]  432 	push	hl
+    0000027F 2E 0A            [ 7]  433 	ld	l, #0x0a
+    00000281 E5               [11]  434 	push	hl
+    00000282 DD 5E FB         [19]  435 	ld	e, -5 (ix)
+    00000285 DD 56 FC         [19]  436 	ld	d, -4 (ix)
+    00000288 DD 6E FD         [19]  437 	ld	l, -3 (ix)
+                                    438 ;	spillPairReg hl
+                                    439 ;	spillPairReg hl
+    0000028B DD 66 FE         [19]  440 	ld	h, -2 (ix)
+                                    441 ;	spillPairReg hl
+                                    442 ;	spillPairReg hl
+    0000028E CDr00r00         [17]  443 	call	__modslong
+    00000291 F1               [10]  444 	pop	af
+    00000292 F1               [10]  445 	pop	af
+    00000293 DD 73 F5         [19]  446 	ld	-11 (ix), e
+    00000296 DD 72 F6         [19]  447 	ld	-10 (ix), d
+    00000299 DD 75 F7         [19]  448 	ld	-9 (ix), l
+    0000029C DD 74 F8         [19]  449 	ld	-8 (ix), h
+    0000029F DD 7E F5         [19]  450 	ld	a, -11 (ix)
+    000002A2 DD 77 F8         [19]  451 	ld	-8 (ix), a
+    000002A5 C6 30            [ 7]  452 	add	a, #0x30
+    000002A7 DD 6E F3         [19]  453 	ld	l, -13 (ix)
+    000002AA DD 66 F4         [19]  454 	ld	h, -12 (ix)
+    000002AD 77               [ 7]  455 	ld	(hl), a
+                                    456 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:200: val /= 10;
+    000002AE 21 00 00         [10]  457 	ld	hl, #0x0000
+    000002B1 E5               [11]  458 	push	hl
+    000002B2 2E 0A            [ 7]  459 	ld	l, #0x0a
+    000002B4 E5               [11]  460 	push	hl
+    000002B5 DD 5E FB         [19]  461 	ld	e, -5 (ix)
+    000002B8 DD 56 FC         [19]  462 	ld	d, -4 (ix)
+    000002BB DD 6E FD         [19]  463 	ld	l, -3 (ix)
+                                    464 ;	spillPairReg hl
+                                    465 ;	spillPairReg hl
+    000002BE DD 66 FE         [19]  466 	ld	h, -2 (ix)
+                                    467 ;	spillPairReg hl
+                                    468 ;	spillPairReg hl
+    000002C1 CDr00r00         [17]  469 	call	__divslong
+    000002C4 F1               [10]  470 	pop	af
+    000002C5 F1               [10]  471 	pop	af
+    000002C6 DD 73 FB         [19]  472 	ld	-5 (ix), e
+    000002C9 DD 72 FC         [19]  473 	ld	-4 (ix), d
+    000002CC DD 75 FD         [19]  474 	ld	-3 (ix), l
+    000002CF DD 74 FE         [19]  475 	ld	-2 (ix), h
+                                    476 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:201: digit++;
+    000002D2 DD 34 FF         [23]  477 	inc	-1 (ix)
+    000002D5 C3r46r02         [10]  478 	jp	00122$
+    000002D8                        479 00230$:
+    000002D8 DD 7E FF         [19]  480 	ld	a, -1 (ix)
+    000002DB DD 77 F6         [19]  481 	ld	-10 (ix), a
+                                    482 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:203: *++ptr = '0' + val;
+    000002DE DD 7E F3         [19]  483 	ld	a, -13 (ix)
+    000002E1 DD 77 F7         [19]  484 	ld	-9 (ix), a
+    000002E4 DD 7E F4         [19]  485 	ld	a, -12 (ix)
+    000002E7 DD 77 F8         [19]  486 	ld	-8 (ix), a
+    000002EA DD 7E FB         [19]  487 	ld	a, -5 (ix)
+    000002ED DD 77 FE         [19]  488 	ld	-2 (ix), a
+    000002F0 C6 30            [ 7]  489 	add	a, #0x30
+    000002F2 DD 6E F7         [19]  490 	ld	l, -9 (ix)
+    000002F5 DD 66 F8         [19]  491 	ld	h, -8 (ix)
+    000002F8 77               [ 7]  492 	ld	(hl), a
+                                    493 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:205: if(len > digit)
+    000002F9 DD 7E FF         [19]  494 	ld	a, -1 (ix)
+    000002FC DD 96 F0         [19]  495 	sub	a, -16 (ix)
+    000002FF 30 4A            [12]  496 	jr	NC, 00211$
+                                    497 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:207: c8 padChr = (pad == STRINT_PAD_ZERO) ? '0' : ' ';
+    00000301 DD 7E EF         [19]  498 	ld	a, -17 (ix)
+    00000304 3D               [ 4]  499 	dec	a
+    00000305 20 06            [12]  500 	jr	NZ, 00181$
+    00000307 01 30 00         [10]  501 	ld	bc, #0x0030
+    0000030A C3r10r03         [10]  502 	jp	00182$
+    0000030D                        503 00181$:
+    0000030D 01 20 00         [10]  504 	ld	bc, #0x0020
+    00000310                        505 00182$:
+    00000310 DD 71 FE         [19]  506 	ld	-2 (ix), c
+                                    507 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:208: for(u8 i = 0; i < len - digit; ++i)
+    00000313 DD 4E 04         [19]  508 	ld	c, 4 (ix)
+    00000316 DD 46 05         [19]  509 	ld	b, 5 (ix)
+    00000319 DD 36 FF 00      [19]  510 	ld	-1 (ix), #0x00
+    0000031D                        511 00174$:
+    0000031D DD 6E F0         [19]  512 	ld	l, -16 (ix)
+                                    513 ;	spillPairReg hl
+                                    514 ;	spillPairReg hl
+    00000320 26 00            [ 7]  515 	ld	h, #0x00
+                                    516 ;	spillPairReg hl
+                                    517 ;	spillPairReg hl
+    00000322 DD 5E F6         [19]  518 	ld	e, -10 (ix)
+    00000325 16 00            [ 7]  519 	ld	d, #0x00
+    00000327 BF               [ 4]  520 	cp	a, a
+    00000328 ED 52            [15]  521 	sbc	hl, de
+    0000032A DD 7E FF         [19]  522 	ld	a, -1 (ix)
+    0000032D 16 00            [ 7]  523 	ld	d, #0x00
+    0000032F 95               [ 4]  524 	sub	a, l
+    00000330 7A               [ 4]  525 	ld	a, d
+    00000331 9C               [ 4]  526 	sbc	a, h
+    00000332 E2r37r03         [10]  527 	jp	PO, 00440$
+    00000335 EE 80            [ 7]  528 	xor	a, #0x80
+    00000337                        529 00440$:
+    00000337 F2r45r03         [10]  530 	jp	P, 00231$
+                                    531 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:209: *dest++ = padChr;
+    0000033A DD 7E FE         [19]  532 	ld	a, -2 (ix)
+    0000033D 02               [ 7]  533 	ld	(bc), a
+    0000033E 03               [ 6]  534 	inc	bc
+                                    535 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:208: for(u8 i = 0; i < len - digit; ++i)
+    0000033F DD 34 FF         [23]  536 	inc	-1 (ix)
+    00000342 C3r1Dr03         [10]  537 	jp	00174$
+                                    538 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:212: while(*ptr != 0)
+    00000345                        539 00231$:
+    00000345 DD 71 04         [19]  540 	ld	4 (ix), c
+    00000348 DD 70 05         [19]  541 	ld	5 (ix), b
+    0000034B                        542 00211$:
+    0000034B DD 4E F7         [19]  543 	ld	c, -9 (ix)
+    0000034E DD 46 F8         [19]  544 	ld	b, -8 (ix)
+    00000351 DD 7E 04         [19]  545 	ld	a, 4 (ix)
+    00000354 DD 77 FE         [19]  546 	ld	-2 (ix), a
+    00000357 DD 7E 05         [19]  547 	ld	a, 5 (ix)
+    0000035A DD 77 FF         [19]  548 	ld	-1 (ix), a
+    0000035D                        549 00128$:
+    0000035D 0A               [ 7]  550 	ld	a, (bc)
+    0000035E B7               [ 4]  551 	or	a, a
+    0000035F CArC9r06         [10]  552 	jp	Z, 00232$
+                                    553 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:213: *dest++ = *ptr--;
+    00000362 0B               [ 6]  554 	dec	bc
+    00000363 DD 6E FE         [19]  555 	ld	l, -2 (ix)
+    00000366 DD 66 FF         [19]  556 	ld	h, -1 (ix)
+    00000369 77               [ 7]  557 	ld	(hl), a
+    0000036A DD 34 FE         [23]  558 	inc	-2 (ix)
+    0000036D 20 EE            [12]  559 	jr	NZ, 00128$
+    0000036F DD 34 FF         [23]  560 	inc	-1 (ix)
+    00000372 C3r5Dr03         [10]  561 	jp	00128$
+                                    562 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:226: case 'X':
+    00000375                        563 00133$:
+                                    564 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:228: if(len == 0)
+    00000375 DD 7E F0         [19]  565 	ld	a, -16 (ix)
+    00000378 B7               [ 4]  566 	or	a, a
+    00000379 20 04            [12]  567 	jr	NZ, 00135$
+                                    568 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:229: len = 8;
+    0000037B DD 36 F0 08      [19]  569 	ld	-16 (ix), #0x08
+    0000037F                        570 00135$:
+                                    571 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:230: u32 val = (u32)va_arg(args, u32);
+    0000037F DD 6E ED         [19]  572 	ld	l, -19 (ix)
+    00000382 DD 66 EE         [19]  573 	ld	h, -18 (ix)
+    00000385 11 04 00         [10]  574 	ld	de, #0x0004
+    00000388 19               [11]  575 	add	hl, de
+    00000389 DD 75 ED         [19]  576 	ld	-19 (ix), l
+    0000038C DD 74 EE         [19]  577 	ld	-18 (ix), h
+    0000038F 11 FC FF         [10]  578 	ld	de, #0xfffc
+    00000392 19               [11]  579 	add	hl, de
+    00000393 EB               [ 4]  580 	ex	de,hl
+    00000394 21 1F 00         [10]  581 	ld	hl, #31
+    00000397 39               [11]  582 	add	hl, sp
+    00000398 EB               [ 4]  583 	ex	de, hl
+    00000399 01 04 00         [10]  584 	ld	bc, #0x0004
+    0000039C ED B0            [21]  585 	ldir
+                                    586 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:232: if(len > 7)
+    0000039E 3E 07            [ 7]  587 	ld	a, #0x07
+    000003A0 DD 96 F0         [19]  588 	sub	a, -16 (ix)
+    000003A3 30 23            [12]  589 	jr	NC, 00137$
+                                    590 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:233: *dest++ = g_HexChar[(val >> 28) & 0xF];
+    000003A5 DD 4E 04         [19]  591 	ld	c, 4 (ix)
+    000003A8 DD 46 05         [19]  592 	ld	b, 5 (ix)
+    000003AB DD 5E FF         [19]  593 	ld	e, -1 (ix)
+    000003AE 3E 04            [ 7]  594 	ld	a, #0x04
+    000003B0                        595 00442$:
+    000003B0 CB 3B            [ 8]  596 	srl	e
+    000003B2 3D               [ 4]  597 	dec	a
+    000003B3 20 FB            [12]  598 	jr	NZ, 00442$
+    000003B5 7B               [ 4]  599 	ld	a, e
+    000003B6 E6 0F            [ 7]  600 	and	a, #0x0f
+    000003B8 5F               [ 4]  601 	ld	e, a
+    000003B9 16 00            [ 7]  602 	ld	d, #0x00
+    000003BB 21r06r00         [10]  603 	ld	hl, #_g_HexChar
+    000003BE 19               [11]  604 	add	hl, de
+    000003BF 7E               [ 7]  605 	ld	a, (hl)
+    000003C0 02               [ 7]  606 	ld	(bc), a
+    000003C1 03               [ 6]  607 	inc	bc
+    000003C2 DD 71 04         [19]  608 	ld	4 (ix), c
+    000003C5 DD 70 05         [19]  609 	ld	5 (ix), b
+    000003C8                        610 00137$:
+                                    611 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:234: if(len > 6)
+    000003C8 3E 06            [ 7]  612 	ld	a, #0x06
+    000003CA DD 96 F0         [19]  613 	sub	a, -16 (ix)
+    000003CD 30 1B            [12]  614 	jr	NC, 00139$
+                                    615 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:235: *dest++ = g_HexChar[(val >> 24) & 0xF];
+    000003CF DD 4E 04         [19]  616 	ld	c, 4 (ix)
+    000003D2 DD 46 05         [19]  617 	ld	b, 5 (ix)
+    000003D5 DD 7E FF         [19]  618 	ld	a, -1 (ix)
+    000003D8 E6 0F            [ 7]  619 	and	a, #0x0f
+    000003DA 5F               [ 4]  620 	ld	e, a
+    000003DB 16 00            [ 7]  621 	ld	d, #0x00
+    000003DD 21r06r00         [10]  622 	ld	hl, #_g_HexChar
+    000003E0 19               [11]  623 	add	hl, de
+    000003E1 7E               [ 7]  624 	ld	a, (hl)
+    000003E2 02               [ 7]  625 	ld	(bc), a
+    000003E3 03               [ 6]  626 	inc	bc
+    000003E4 DD 71 04         [19]  627 	ld	4 (ix), c
+    000003E7 DD 70 05         [19]  628 	ld	5 (ix), b
+    000003EA                        629 00139$:
+                                    630 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:236: if(len > 5)
+    000003EA 3E 05            [ 7]  631 	ld	a, #0x05
+    000003EC DD 96 F0         [19]  632 	sub	a, -16 (ix)
+    000003EF 30 28            [12]  633 	jr	NC, 00141$
+                                    634 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:237: *dest++ = g_HexChar[(val >> 20) & 0xF];
+    000003F1 DD 4E 04         [19]  635 	ld	c, 4 (ix)
+    000003F4 DD 46 05         [19]  636 	ld	b, 5 (ix)
+    000003F7 DD 5E FE         [19]  637 	ld	e, -2 (ix)
+    000003FA DD 56 FF         [19]  638 	ld	d, -1 (ix)
+    000003FD 3E 04            [ 7]  639 	ld	a, #0x04
+    000003FF                        640 00444$:
+    000003FF CB 3A            [ 8]  641 	srl	d
+    00000401 CB 1B            [ 8]  642 	rr	e
+    00000403 3D               [ 4]  643 	dec	a
+    00000404 20 F9            [12]  644 	jr	NZ, 00444$
+    00000406 7B               [ 4]  645 	ld	a, e
+    00000407 E6 0F            [ 7]  646 	and	a, #0x0f
+    00000409 5F               [ 4]  647 	ld	e, a
+    0000040A 16 00            [ 7]  648 	ld	d, #0x00
+    0000040C 21r06r00         [10]  649 	ld	hl, #_g_HexChar
+    0000040F 19               [11]  650 	add	hl, de
+    00000410 7E               [ 7]  651 	ld	a, (hl)
+    00000411 02               [ 7]  652 	ld	(bc), a
+    00000412 03               [ 6]  653 	inc	bc
+    00000413 DD 71 04         [19]  654 	ld	4 (ix), c
+    00000416 DD 70 05         [19]  655 	ld	5 (ix), b
+    00000419                        656 00141$:
+                                    657 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:238: if(len > 4)
+    00000419 3E 04            [ 7]  658 	ld	a, #0x04
+    0000041B DD 96 F0         [19]  659 	sub	a, -16 (ix)
+    0000041E 30 1B            [12]  660 	jr	NC, 00143$
+                                    661 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:239: *dest++ = g_HexChar[(val >> 16) & 0xF];
+    00000420 DD 4E 04         [19]  662 	ld	c, 4 (ix)
+    00000423 DD 46 05         [19]  663 	ld	b, 5 (ix)
+    00000426 DD 7E FE         [19]  664 	ld	a, -2 (ix)
+    00000429 E6 0F            [ 7]  665 	and	a, #0x0f
+    0000042B 5F               [ 4]  666 	ld	e, a
+    0000042C 16 00            [ 7]  667 	ld	d, #0x00
+    0000042E 21r06r00         [10]  668 	ld	hl, #_g_HexChar
+    00000431 19               [11]  669 	add	hl, de
+    00000432 7E               [ 7]  670 	ld	a, (hl)
+    00000433 02               [ 7]  671 	ld	(bc), a
+    00000434 03               [ 6]  672 	inc	bc
+    00000435 DD 71 04         [19]  673 	ld	4 (ix), c
+    00000438 DD 70 05         [19]  674 	ld	5 (ix), b
+    0000043B                        675 00143$:
+                                    676 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:240: if(len > 3)
+    0000043B 3E 03            [ 7]  677 	ld	a, #0x03
+    0000043D DD 96 F0         [19]  678 	sub	a, -16 (ix)
+    00000440 30 2D            [12]  679 	jr	NC, 00145$
+                                    680 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:241: *dest++ = g_HexChar[(val >> 12) & 0xF];
+    00000442 DD 4E 04         [19]  681 	ld	c, 4 (ix)
+    00000445 DD 46 05         [19]  682 	ld	b, 5 (ix)
+    00000448 DD 5E FD         [19]  683 	ld	e, -3 (ix)
+    0000044B DD 56 FE         [19]  684 	ld	d, -2 (ix)
+    0000044E DD 6E FF         [19]  685 	ld	l, -1 (ix)
+                                    686 ;	spillPairReg hl
+                                    687 ;	spillPairReg hl
+                                    688 ;	spillPairReg hl
+                                    689 ;	spillPairReg hl
+    00000451 3E 04            [ 7]  690 	ld	a, #0x04
+    00000453                        691 00446$:
+    00000453 CB 3D            [ 8]  692 	srl	l
+    00000455 CB 1A            [ 8]  693 	rr	d
+    00000457 CB 1B            [ 8]  694 	rr	e
+    00000459 3D               [ 4]  695 	dec	a
+    0000045A 20 F7            [12]  696 	jr	NZ, 00446$
+    0000045C 7B               [ 4]  697 	ld	a, e
+    0000045D E6 0F            [ 7]  698 	and	a, #0x0f
+    0000045F 5F               [ 4]  699 	ld	e, a
+    00000460 16 00            [ 7]  700 	ld	d, #0x00
+    00000462 21r06r00         [10]  701 	ld	hl, #_g_HexChar
+    00000465 19               [11]  702 	add	hl, de
+    00000466 7E               [ 7]  703 	ld	a, (hl)
+    00000467 02               [ 7]  704 	ld	(bc), a
+    00000468 03               [ 6]  705 	inc	bc
+    00000469 DD 71 04         [19]  706 	ld	4 (ix), c
+    0000046C DD 70 05         [19]  707 	ld	5 (ix), b
+    0000046F                        708 00145$:
+                                    709 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:242: if(len > 2)
+    0000046F 3E 02            [ 7]  710 	ld	a, #0x02
+    00000471 DD 96 F0         [19]  711 	sub	a, -16 (ix)
+    00000474 30 1B            [12]  712 	jr	NC, 00147$
+                                    713 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:243: *dest++ = g_HexChar[(val >> 8) & 0xF];
+    00000476 DD 4E 04         [19]  714 	ld	c, 4 (ix)
+    00000479 DD 46 05         [19]  715 	ld	b, 5 (ix)
+    0000047C DD 7E FD         [19]  716 	ld	a, -3 (ix)
+    0000047F E6 0F            [ 7]  717 	and	a, #0x0f
+    00000481 5F               [ 4]  718 	ld	e, a
+    00000482 16 00            [ 7]  719 	ld	d, #0x00
+    00000484 21r06r00         [10]  720 	ld	hl, #_g_HexChar
+    00000487 19               [11]  721 	add	hl, de
+    00000488 7E               [ 7]  722 	ld	a, (hl)
+    00000489 02               [ 7]  723 	ld	(bc), a
+    0000048A 03               [ 6]  724 	inc	bc
+    0000048B DD 71 04         [19]  725 	ld	4 (ix), c
+    0000048E DD 70 05         [19]  726 	ld	5 (ix), b
+    00000491                        727 00147$:
+                                    728 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:244: if(len > 1)
+    00000491 3E 01            [ 7]  729 	ld	a, #0x01
+    00000493 DD 96 F0         [19]  730 	sub	a, -16 (ix)
+    00000496 30 32            [12]  731 	jr	NC, 00149$
+                                    732 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:245: *dest++ = g_HexChar[(val >> 4) & 0xF];
+    00000498 DD 4E 04         [19]  733 	ld	c, 4 (ix)
+    0000049B DD 46 05         [19]  734 	ld	b, 5 (ix)
+    0000049E DD 5E FC         [19]  735 	ld	e, -4 (ix)
+    000004A1 DD 56 FD         [19]  736 	ld	d, -3 (ix)
+    000004A4 DD 6E FE         [19]  737 	ld	l, -2 (ix)
+                                    738 ;	spillPairReg hl
+                                    739 ;	spillPairReg hl
+    000004A7 DD 66 FF         [19]  740 	ld	h, -1 (ix)
+                                    741 ;	spillPairReg hl
+                                    742 ;	spillPairReg hl
+    000004AA 3E 04            [ 7]  743 	ld	a, #0x04
+    000004AC                        744 00448$:
+    000004AC CB 3C            [ 8]  745 	srl	h
+    000004AE CB 1D            [ 8]  746 	rr	l
+    000004B0 CB 1A            [ 8]  747 	rr	d
+    000004B2 CB 1B            [ 8]  748 	rr	e
+    000004B4 3D               [ 4]  749 	dec	a
+    000004B5 20 F5            [12]  750 	jr	NZ, 00448$
+    000004B7 7B               [ 4]  751 	ld	a, e
+    000004B8 E6 0F            [ 7]  752 	and	a, #0x0f
+    000004BA 5F               [ 4]  753 	ld	e, a
+    000004BB 16 00            [ 7]  754 	ld	d, #0x00
+    000004BD 21r06r00         [10]  755 	ld	hl, #_g_HexChar
+    000004C0 19               [11]  756 	add	hl, de
+    000004C1 7E               [ 7]  757 	ld	a, (hl)
+    000004C2 02               [ 7]  758 	ld	(bc), a
+    000004C3 03               [ 6]  759 	inc	bc
+    000004C4 DD 71 04         [19]  760 	ld	4 (ix), c
+    000004C7 DD 70 05         [19]  761 	ld	5 (ix), b
+    000004CA                        762 00149$:
+                                    763 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:246: *dest++ = g_HexChar[val & 0xF];
+    000004CA DD 4E 04         [19]  764 	ld	c, 4 (ix)
+    000004CD DD 46 05         [19]  765 	ld	b, 5 (ix)
+    000004D0 DD 7E FC         [19]  766 	ld	a, -4 (ix)
+    000004D3 E6 0F            [ 7]  767 	and	a, #0x0f
+    000004D5 5F               [ 4]  768 	ld	e, a
+    000004D6 16 00            [ 7]  769 	ld	d, #0x00
+    000004D8 21r06r00         [10]  770 	ld	hl, #_g_HexChar
+    000004DB 19               [11]  771 	add	hl, de
+    000004DC 7E               [ 7]  772 	ld	a, (hl)
+    000004DD 02               [ 7]  773 	ld	(bc), a
+    000004DE 03               [ 6]  774 	inc	bc
+    000004DF DD 71 04         [19]  775 	ld	4 (ix), c
+    000004E2 DD 70 05         [19]  776 	ld	5 (ix), b
+                                    777 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:247: break;
+    000004E5 C3rDEr06         [10]  778 	jp	00165$
+                                    779 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:252: case 'x':
+    000004E8                        780 00150$:
+                                    781 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:254: if(len == 0)
+    000004E8 DD 7E F0         [19]  782 	ld	a, -16 (ix)
+    000004EB B7               [ 4]  783 	or	a, a
+    000004EC 20 04            [12]  784 	jr	NZ, 00152$
+                                    785 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:255: len = 4;
+    000004EE DD 36 F0 04      [19]  786 	ld	-16 (ix), #0x04
+    000004F2                        787 00152$:
+                                    788 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:256: u16 val = (u16)va_arg(args, u16);
+    000004F2 DD 4E ED         [19]  789 	ld	c, -19 (ix)
+    000004F5 DD 46 EE         [19]  790 	ld	b, -18 (ix)
+    000004F8 03               [ 6]  791 	inc	bc
+    000004F9 03               [ 6]  792 	inc	bc
+    000004FA DD 71 ED         [19]  793 	ld	-19 (ix), c
+    000004FD DD 70 EE         [19]  794 	ld	-18 (ix), b
+    00000500 0B               [ 6]  795 	dec	bc
+    00000501 0B               [ 6]  796 	dec	bc
+    00000502 0A               [ 7]  797 	ld	a, (bc)
+    00000503 DD 77 F5         [19]  798 	ld	-11 (ix), a
+    00000506 03               [ 6]  799 	inc	bc
+    00000507 0A               [ 7]  800 	ld	a, (bc)
+    00000508 DD 77 F6         [19]  801 	ld	-10 (ix), a
+                                    802 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:257: if(len > 3)
+    0000050B 3E 03            [ 7]  803 	ld	a, #0x03
+    0000050D DD 96 F0         [19]  804 	sub	a, -16 (ix)
+    00000510 30 56            [12]  805 	jr	NC, 00154$
+                                    806 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:258: *dest++ = g_HexChar[(val >> 12) & 0xF];
+    00000512 DD 7E 04         [19]  807 	ld	a, 4 (ix)
+    00000515 DD 77 F7         [19]  808 	ld	-9 (ix), a
+    00000518 DD 7E 05         [19]  809 	ld	a, 5 (ix)
+    0000051B DD 77 F8         [19]  810 	ld	-8 (ix), a
+    0000051E DD 7E F6         [19]  811 	ld	a, -10 (ix)
+    00000521 07               [ 4]  812 	rlca
+    00000522 07               [ 4]  813 	rlca
+    00000523 07               [ 4]  814 	rlca
+    00000524 07               [ 4]  815 	rlca
+    00000525 E6 0F            [ 7]  816 	and	a, #0x0f
+    00000527 DD 77 FE         [19]  817 	ld	-2 (ix), a
+    0000052A DD 36 FF 00      [19]  818 	ld	-1 (ix), #0x00
+    0000052E DD 7E FE         [19]  819 	ld	a, -2 (ix)
+    00000531 E6 0F            [ 7]  820 	and	a, #0x0f
+    00000533 DD 77 FC         [19]  821 	ld	-4 (ix), a
+    00000536 DD 36 FD 00      [19]  822 	ld	-3 (ix), #0x00
+    0000053A 3Er06            [ 7]  823 	ld	a, #<(_g_HexChar)
+    0000053C DD 86 FC         [19]  824 	add	a, -4 (ix)
+    0000053F DD 77 FE         [19]  825 	ld	-2 (ix), a
+    00000542 3Es00            [ 7]  826 	ld	a, #>(_g_HexChar)
+    00000544 DD 8E FD         [19]  827 	adc	a, -3 (ix)
+    00000547 DD 77 FF         [19]  828 	ld	-1 (ix), a
+    0000054A DD 6E FE         [19]  829 	ld	l, -2 (ix)
+    0000054D DD 66 FF         [19]  830 	ld	h, -1 (ix)
+    00000550 7E               [ 7]  831 	ld	a, (hl)
+    00000551 DD 6E F7         [19]  832 	ld	l, -9 (ix)
+    00000554 DD 66 F8         [19]  833 	ld	h, -8 (ix)
+    00000557 77               [ 7]  834 	ld	(hl), a
+    00000558 DD 7E F7         [19]  835 	ld	a, -9 (ix)
+    0000055B C6 01            [ 7]  836 	add	a, #0x01
+    0000055D DD 77 04         [19]  837 	ld	4 (ix), a
+    00000560 DD 7E F8         [19]  838 	ld	a, -8 (ix)
+    00000563 CE 00            [ 7]  839 	adc	a, #0x00
+    00000565 DD 77 05         [19]  840 	ld	5 (ix), a
+    00000568                        841 00154$:
+                                    842 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:259: if(len > 2)
+    00000568 3E 02            [ 7]  843 	ld	a, #0x02
+    0000056A DD 96 F0         [19]  844 	sub	a, -16 (ix)
+    0000056D 30 53            [12]  845 	jr	NC, 00156$
+                                    846 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:260: *dest++ = g_HexChar[(val >> 8) & 0xF];
+    0000056F DD 7E 04         [19]  847 	ld	a, 4 (ix)
+    00000572 DD 77 F7         [19]  848 	ld	-9 (ix), a
+    00000575 DD 7E 05         [19]  849 	ld	a, 5 (ix)
+    00000578 DD 77 F8         [19]  850 	ld	-8 (ix), a
+    0000057B DD 7E F6         [19]  851 	ld	a, -10 (ix)
+    0000057E DD 77 FF         [19]  852 	ld	-1 (ix), a
+    00000581 DD 77 FE         [19]  853 	ld	-2 (ix), a
+    00000584 DD 36 FF 00      [19]  854 	ld	-1 (ix), #0x00
+    00000588 DD 7E FE         [19]  855 	ld	a, -2 (ix)
+    0000058B E6 0F            [ 7]  856 	and	a, #0x0f
+    0000058D DD 77 FC         [19]  857 	ld	-4 (ix), a
+    00000590 DD 36 FD 00      [19]  858 	ld	-3 (ix), #0x00
+    00000594 3Er06            [ 7]  859 	ld	a, #<(_g_HexChar)
+    00000596 DD 86 FC         [19]  860 	add	a, -4 (ix)
+    00000599 DD 77 FE         [19]  861 	ld	-2 (ix), a
+    0000059C 3Es00            [ 7]  862 	ld	a, #>(_g_HexChar)
+    0000059E DD 8E FD         [19]  863 	adc	a, -3 (ix)
+    000005A1 DD 77 FF         [19]  864 	ld	-1 (ix), a
+    000005A4 DD 6E FE         [19]  865 	ld	l, -2 (ix)
+    000005A7 DD 66 FF         [19]  866 	ld	h, -1 (ix)
+    000005AA 7E               [ 7]  867 	ld	a, (hl)
+    000005AB DD 6E F7         [19]  868 	ld	l, -9 (ix)
+    000005AE DD 66 F8         [19]  869 	ld	h, -8 (ix)
+    000005B1 77               [ 7]  870 	ld	(hl), a
+    000005B2 DD 7E F7         [19]  871 	ld	a, -9 (ix)
+    000005B5 C6 01            [ 7]  872 	add	a, #0x01
+    000005B7 DD 77 04         [19]  873 	ld	4 (ix), a
+    000005BA DD 7E F8         [19]  874 	ld	a, -8 (ix)
+    000005BD CE 00            [ 7]  875 	adc	a, #0x00
+    000005BF DD 77 05         [19]  876 	ld	5 (ix), a
+    000005C2                        877 00156$:
+                                    878 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:261: if(len > 1)
+    000005C2 3E 01            [ 7]  879 	ld	a, #0x01
+    000005C4 DD 96 F0         [19]  880 	sub	a, -16 (ix)
+    000005C7 30 72            [12]  881 	jr	NC, 00158$
+                                    882 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:262: *dest++ = g_HexChar[(val >> 4) & 0xF];
+    000005C9 DD 7E 04         [19]  883 	ld	a, 4 (ix)
+    000005CC DD 77 F7         [19]  884 	ld	-9 (ix), a
+    000005CF DD 7E 05         [19]  885 	ld	a, 5 (ix)
+    000005D2 DD 77 F8         [19]  886 	ld	-8 (ix), a
+    000005D5 DD 7E F5         [19]  887 	ld	a, -11 (ix)
+    000005D8 DD 77 FE         [19]  888 	ld	-2 (ix), a
+    000005DB DD 7E F6         [19]  889 	ld	a, -10 (ix)
+    000005DE DD 77 FF         [19]  890 	ld	-1 (ix), a
+    000005E1 DD CB FF 3E      [23]  891 	srl	-1 (ix)
+    000005E5 DD CB FE 1E      [23]  892 	rr	-2 (ix)
+    000005E9 DD CB FF 3E      [23]  893 	srl	-1 (ix)
+    000005ED DD CB FE 1E      [23]  894 	rr	-2 (ix)
+    000005F1 DD CB FF 3E      [23]  895 	srl	-1 (ix)
+    000005F5 DD CB FE 1E      [23]  896 	rr	-2 (ix)
+    000005F9 DD CB FF 3E      [23]  897 	srl	-1 (ix)
+    000005FD DD CB FE 1E      [23]  898 	rr	-2 (ix)
+    00000601 DD 7E FE         [19]  899 	ld	a, -2 (ix)
+    00000604 E6 0F            [ 7]  900 	and	a, #0x0f
+    00000606 DD 77 FC         [19]  901 	ld	-4 (ix), a
+    00000609 DD 36 FD 00      [19]  902 	ld	-3 (ix), #0x00
+    0000060D 3Er06            [ 7]  903 	ld	a, #<(_g_HexChar)
+    0000060F DD 86 FC         [19]  904 	add	a, -4 (ix)
+    00000612 DD 77 FE         [19]  905 	ld	-2 (ix), a
+    00000615 3Es00            [ 7]  906 	ld	a, #>(_g_HexChar)
+    00000617 DD 8E FD         [19]  907 	adc	a, -3 (ix)
+    0000061A DD 77 FF         [19]  908 	ld	-1 (ix), a
+    0000061D DD 6E FE         [19]  909 	ld	l, -2 (ix)
+    00000620 DD 66 FF         [19]  910 	ld	h, -1 (ix)
+    00000623 7E               [ 7]  911 	ld	a, (hl)
+    00000624 DD 6E F7         [19]  912 	ld	l, -9 (ix)
+    00000627 DD 66 F8         [19]  913 	ld	h, -8 (ix)
+    0000062A 77               [ 7]  914 	ld	(hl), a
+    0000062B DD 7E F7         [19]  915 	ld	a, -9 (ix)
+    0000062E C6 01            [ 7]  916 	add	a, #0x01
+    00000630 DD 77 04         [19]  917 	ld	4 (ix), a
+    00000633 DD 7E F8         [19]  918 	ld	a, -8 (ix)
+    00000636 CE 00            [ 7]  919 	adc	a, #0x00
+    00000638 DD 77 05         [19]  920 	ld	5 (ix), a
+    0000063B                        921 00158$:
+                                    922 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:263: *dest++ = g_HexChar[val & 0xF];
+    0000063B DD 4E 04         [19]  923 	ld	c, 4 (ix)
+    0000063E DD 46 05         [19]  924 	ld	b, 5 (ix)
+    00000641 DD 7E F5         [19]  925 	ld	a, -11 (ix)
+    00000644 E6 0F            [ 7]  926 	and	a, #0x0f
+    00000646 6F               [ 4]  927 	ld	l, a
+                                    928 ;	spillPairReg hl
+                                    929 ;	spillPairReg hl
+    00000647 26 00            [ 7]  930 	ld	h, #0x00
+                                    931 ;	spillPairReg hl
+                                    932 ;	spillPairReg hl
+    00000649 11r06r00         [10]  933 	ld	de, #_g_HexChar
+    0000064C 19               [11]  934 	add	hl, de
+    0000064D 7E               [ 7]  935 	ld	a, (hl)
+    0000064E 02               [ 7]  936 	ld	(bc), a
+    0000064F 03               [ 6]  937 	inc	bc
+    00000650 DD 71 04         [19]  938 	ld	4 (ix), c
+    00000653 DD 70 05         [19]  939 	ld	5 (ix), b
+                                    940 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:264: break;
+    00000656 C3rDEr06         [10]  941 	jp	00165$
+                                    942 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:268: case 'c':
+    00000659                        943 00159$:
+                                    944 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:270: c8 val = (c8)va_arg(args, u16);
+    00000659 DD 4E ED         [19]  945 	ld	c, -19 (ix)
+    0000065C DD 46 EE         [19]  946 	ld	b, -18 (ix)
+    0000065F 03               [ 6]  947 	inc	bc
+    00000660 03               [ 6]  948 	inc	bc
+    00000661 DD 71 ED         [19]  949 	ld	-19 (ix), c
+    00000664 DD 70 EE         [19]  950 	ld	-18 (ix), b
+    00000667 0B               [ 6]  951 	dec	bc
+    00000668 0B               [ 6]  952 	dec	bc
+    00000669 0A               [ 7]  953 	ld	a, (bc)
+                                    954 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:271: *dest++ = val;
+    0000066A DD 4E 04         [19]  955 	ld	c, 4 (ix)
+    0000066D DD 46 05         [19]  956 	ld	b, 5 (ix)
+    00000670 02               [ 7]  957 	ld	(bc), a
+    00000671 03               [ 6]  958 	inc	bc
+    00000672 DD 71 04         [19]  959 	ld	4 (ix), c
+    00000675 DD 70 05         [19]  960 	ld	5 (ix), b
+                                    961 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:272: break;
+    00000678 C3rDEr06         [10]  962 	jp	00165$
+                                    963 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:276: case 's':
+    0000067B                        964 00160$:
+                                    965 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:278: const c8* val = (const c8*)va_arg(args, const c8*);
+    0000067B DD 6E ED         [19]  966 	ld	l, -19 (ix)
+                                    967 ;	spillPairReg hl
+                                    968 ;	spillPairReg hl
+    0000067E DD 66 EE         [19]  969 	ld	h, -18 (ix)
+                                    970 ;	spillPairReg hl
+                                    971 ;	spillPairReg hl
+    00000681 23               [ 6]  972 	inc	hl
+    00000682 23               [ 6]  973 	inc	hl
+    00000683 DD 75 ED         [19]  974 	ld	-19 (ix), l
+    00000686 DD 74 EE         [19]  975 	ld	-18 (ix), h
+    00000689 2B               [ 6]  976 	dec	hl
+    0000068A 2B               [ 6]  977 	dec	hl
+    0000068B 4E               [ 7]  978 	ld	c, (hl)
+    0000068C 23               [ 6]  979 	inc	hl
+    0000068D 46               [ 7]  980 	ld	b, (hl)
+                                    981 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:279: u8 len = String_Length(val);
+    0000068E 1E 00            [ 7]  982 	ld	e, #0x00
+    00000690 69               [ 4]  983 	ld	l, c
+                                    984 ;	spillPairReg hl
+                                    985 ;	spillPairReg hl
+    00000691 60               [ 4]  986 	ld	h, b
+                                    987 ;	spillPairReg hl
+                                    988 ;	spillPairReg hl
+    00000692                        989 00169$:
+    00000692 7E               [ 7]  990 	ld	a, (hl)
+    00000693 23               [ 6]  991 	inc	hl
+    00000694 B7               [ 4]  992 	or	a, a
+    00000695 28 04            [12]  993 	jr	Z, 00171$
+    00000697 1C               [ 4]  994 	inc	e
+    00000698 C3r92r06         [10]  995 	jp	00169$
+    0000069B                        996 00171$:
+                                    997 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:280: for(u8 i = 0; i < len; i++)
+    0000069B C5               [11]  998 	push	bc
+    0000069C FD E1            [14]  999 	pop	iy
+    0000069E DD 4E 04         [19] 1000 	ld	c, 4 (ix)
+    000006A1 DD 46 05         [19] 1001 	ld	b, 5 (ix)
+    000006A4 16 00            [ 7] 1002 	ld	d, #0x00
+    000006A6                       1003 00177$:
+    000006A6 7A               [ 4] 1004 	ld	a, d
+    000006A7 93               [ 4] 1005 	sub	a, e
+    000006A8 30 2E            [12] 1006 	jr	NC, 00234$
+                                   1007 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:281: *dest++ = *val++;
+    000006AA FD 7E 00         [19] 1008 	ld	a, 0 (iy)
+    000006AD FD 23            [10] 1009 	inc	iy
+    000006AF 02               [ 7] 1010 	ld	(bc), a
+    000006B0 03               [ 6] 1011 	inc	bc
+                                   1012 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:280: for(u8 i = 0; i < len; i++)
+    000006B1 14               [ 4] 1013 	inc	d
+    000006B2 C3rA6r06         [10] 1014 	jp	00177$
+                                   1015 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:284: }
+    000006B5                       1016 00164$:
+                                   1017 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:287: *dest++ = *ptr;
+    000006B5 DD 4E 04         [19] 1018 	ld	c, 4 (ix)
+    000006B8 DD 46 05         [19] 1019 	ld	b, 5 (ix)
+    000006BB DD 7E FF         [19] 1020 	ld	a, -1 (ix)
+    000006BE 02               [ 7] 1021 	ld	(bc), a
+    000006BF 03               [ 6] 1022 	inc	bc
+    000006C0 DD 71 04         [19] 1023 	ld	4 (ix), c
+    000006C3 DD 70 05         [19] 1024 	ld	5 (ix), b
+                                   1025 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:293: va_end(args);
+    000006C6 C3rDEr06         [10] 1026 	jp	00165$
+                                   1027 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:287: *dest++ = *ptr;
+    000006C9                       1028 00232$:
+    000006C9 DD 7E FE         [19] 1029 	ld	a, -2 (ix)
+    000006CC DD 77 04         [19] 1030 	ld	4 (ix), a
+    000006CF DD 7E FF         [19] 1031 	ld	a, -1 (ix)
+    000006D2 DD 77 05         [19] 1032 	ld	5 (ix), a
+                                   1033 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:293: va_end(args);
+    000006D5 C3rDEr06         [10] 1034 	jp	00165$
+                                   1035 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:287: *dest++ = *ptr;
+    000006D8                       1036 00234$:
+    000006D8 DD 71 04         [19] 1037 	ld	4 (ix), c
+    000006DB DD 70 05         [19] 1038 	ld	5 (ix), b
+    000006DE                       1039 00165$:
+                                   1040 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:289: ptr++;
+    000006DE DD 34 F9         [23] 1041 	inc	-7 (ix)
+    000006E1 C2r7Dr00         [10] 1042 	jp	NZ,00166$
+    000006E4 DD 34 FA         [23] 1043 	inc	-6 (ix)
+    000006E7 C3r7Dr00         [10] 1044 	jp	00166$
+    000006EA                       1045 00168$:
+                                   1046 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:291: *dest = 0;
+    000006EA DD 4E 04         [19] 1047 	ld	c, 4 (ix)
+    000006ED DD 46 05         [19] 1048 	ld	b, 5 (ix)
+    000006F0 AF               [ 4] 1049 	xor	a, a
+    000006F1 02               [ 7] 1050 	ld	(bc), a
+                                   1051 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:293: va_end(args);
+                                   1052 ;C:\Users\reina\OneDrive\Documentos\MSXgl\engine/src/string.c:294: }
+    000006F2 DD F9            [10] 1053 	ld	sp, ix
+    000006F4 DD E1            [14] 1054 	pop	ix
+    000006F6 C9               [10] 1055 	ret
+                                   1056 	.area _CODE
+                                   1057 	.area _INITIALIZER
+                                   1058 	.area _CABS (ABS)
