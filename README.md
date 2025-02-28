@@ -1,7 +1,3 @@
-Below is an improved version of your README.md that provides additional context, formatting, and clear step‐by–step instructions:
-
----
-
 # Micro Invasion
 
 **Micro Invasion** is a retro-style MSX1 game powered by the [MSXgl](https://github.com/aoineko-fr/MSXgl) graphics library.
