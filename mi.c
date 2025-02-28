@@ -141,7 +141,7 @@ const c8* MenuAction_About(u8 op, i8 value)
         Print_SetPosition(2, 13);
         Print_DrawText("Intro Music by:");
         Print_SetPosition(2, 15);
-        Print_DrawText("Ludwig van Beethoven");
+        Print_DrawText("Deep Space by GPA");
         Print_SetPosition(2, 22);
         Print_DrawText("Press SPACE key to return...");
         while (!Keyboard_IsKeyPressed(KEY_SPACE) && !Joystick_IsButtonPressed(JOY_PORT_1, JOY_INPUT_TRIGGER_A))
