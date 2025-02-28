@@ -1,0 +1,70 @@
+Below is an improved version of your README.md that provides additional context, formatting, and clear step‐by–step instructions:
+
+---
+
+# Micro Invasion
+
+**Micro Invasion** is a retro-style MSX1 game powered by the [MSXgl](https://github.com/aoineko-fr/MSXgl) graphics library.
+
+## Prerequisites
+
+- **Git:** Ensure you have Git installed to clone the repositories.
+- **Build Environment:** A working MSX1 development environment (Windows, Linux, etc.) with support for batch or shell scripts.
+
+## Installation
+
+Follow these steps to set up the project:
+
+1. **Clone the MSXgl Repository**
+
+   Open your terminal (or command prompt) and execute:
+   ```bash
+   git clone https://github.com/aoineko-fr/MSXgl.git
+   ```
+
+2. **Add the Micro Invasion Project**
+
+   Clone the Micro Invasion repository:
+   ```bash
+   git clone https://github.com/rflamino/microinvasion.git
+   ```
+   Then, move the cloned `microinvasion` folder into the `projects` directory of MSXgl so that your folder structure looks like this:
+   ```
+   MSXgl/
+   └── projects/
+       └── microinvasion/
+   ```
+
+3. **Build the Project**
+
+   Depending on your operating system, run the appropriate build script from the root of the MSXgl repository:
+
+   - **Windows:**
+     ```cmd
+     build.bat
+     ```
+   - **Linux/macOS:**
+     ```bash
+     ./build.sh
+     ```
+
+## Running the Game
+
+Once the build completes successfully, follow the instructions provided in the build output to run **Micro Invasion** on your MSX1 emulator or hardware.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, create a new branch for your feature or bug fix, and submit a pull request with a clear description of your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgements
+
+- **[MSXgl](https://github.com/aoineko-fr/MSXgl):** The graphics library powering this project.
+- **[Micro Invasion](https://github.com/rflamino/microinvasion):** The game source code and assets.
+
+---
+
+This README now provides a clear, structured guide for setting up, building, and contributing to the project.
