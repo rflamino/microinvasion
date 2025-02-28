@@ -43,7 +43,3 @@ Follow these steps to set up the project:
      ```bash
      ./build.sh
      ```
-
-## Acknowledgements
-
-- **[MSXgl](https://github.com/aoineko-fr/MSXgl):** The graphics library powering this project.
