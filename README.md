@@ -47,4 +47,3 @@ Follow these steps to set up the project:
 ## Acknowledgements
 
 - **[MSXgl](https://github.com/aoineko-fr/MSXgl):** The graphics library powering this project.
-- **[Micro Invasion](https://github.com/rflamino/microinvasion):** The game source code and assets.
