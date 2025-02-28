@@ -60,7 +60,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **[MSXgl](https://github.com/aoineko-fr/MSXgl):** The graphics library powering this project.
 - **[Micro Invasion](https://github.com/rflamino/microinvasion):** The game source code and assets.
-
----
-
-This README now provides a clear, structured guide for setting up, building, and contributing to the project.
