@@ -44,18 +44,6 @@ Follow these steps to set up the project:
      ./build.sh
      ```
 
-## Running the Game
-
-Once the build completes successfully, follow the instructions provided in the build output to run **Micro Invasion** on your MSX1 emulator or hardware.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository, create a new branch for your feature or bug fix, and submit a pull request with a clear description of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
 ## Acknowledgements
 
 - **[MSXgl](https://github.com/aoineko-fr/MSXgl):** The graphics library powering this project.
