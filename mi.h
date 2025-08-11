@@ -66,7 +66,7 @@ bool g_VBlank = FALSE;
 #define MAX_SCORE          999
 
 // NEW: Power-up and shield constants
-#define SLOWDOWN_FACTOR       2.0f  // Enemies slow by this factor while shield active
+#define SLOWDOWN_FACTOR       2  // Enemies slow by this factor while shield active
 
 // NEW: Slowdown power–up variables.
 #define POWERUP_SLOWDOWN_TIME   300   // Duration (in frames) for which enemy movement is slowed
@@ -661,17 +661,17 @@ static PowerUpType g_PowerUpType = POWERUP_SLOWDOWN;
 static bool g_BulletSideways = false;       // true when the active bullet is fired sideways
 static bool g_BulletHorizontalRight = false;  // true = bullet moves right; false = left
 
+// NEW: Gravity power–up constants using fixed-point arithmetic (8.8 format)
+#define GRAVITY_ACCEL_FP         16    // Fixed-point representation of gravity acceleration (approx 0.0625).
+#define GRAVITY_INITIAL_VELOCITY -384  // Fixed-point representation of initial upward velocity (-1.5).
+#define GRAVITY_POWERUP_TIME     500   // Duration (in frames) for which gravity mode is active
 
-// NEW: Gravity power–up constants
-#define GRAVITY_ACCEL       0.062f   // Gravity acceleration per frame
-#define GRAVITY_POWERUP_TIME 500   // Duration (in frames) for which gravity mode is active
+// NEW: Gravity bullet globals using fixed-point integers (i16 for signed values).
+static bool   g_BulletGravityActive = false;   // When true, fired bullets are affected by gravity.
+static u16    g_BulletGravityTimer = 0;        // Timer for gravity power–up effect.
+static i16    g_BulletY_fp = 0;                // Fixed-point vertical position for the bullet.
+static i16    g_BulletVelY_fp = 0;             // Fixed-point vertical velocity for the gravity bullet.
 
-
-// NEW: Gravity bullet globals
-static bool   g_BulletGravityActive = false;  // When true, fired bullets are affected by gravity
-static u16    g_BulletGravityTimer = 0;         // Timer for gravity power–up effect
-static float  g_BulletY_f = 0.0f;               // Floating–point vertical position for the bullet
-static float  g_BulletVelY = 0.0f;              // Vertical velocity for the gravity bullet
 
 // Global variables for the intro music state.
 static u8 s_IntroMusicIndex = 0;
@@ -766,6 +766,6 @@ void getHiScore(void);
 /* Forward declaration for power-up update function */
 static void UpdatePowerUp(void);
 u8 Menu_Input_CB(void);
-
+static void ResetAllPowerUps(void);
 
 #endif // MI_H

@@ -403,6 +403,8 @@ static void SetWaveBackdropColor(u8 wave)
 
 static void InitWave(void)
 {
+    ResetAllPowerUps();
+
     LoadEnemyPatternForWave(g_Wave);
     InitAllSprites();
     u8 enemyColor = GetEnemyColorForWave(g_Wave);
@@ -656,13 +658,12 @@ static void MoveEnemiesIfTime(void)
     u8 mode_delay = (ENEMY_MOVE_DELAY > g_Wave) ? (ENEMY_MOVE_DELAY - g_Wave) : ENEMY_MOVE_DELAY_MIN;
     mode_delay = (mode_delay < ENEMY_MOVE_DELAY_MIN) ? ENEMY_MOVE_DELAY_MIN : mode_delay;
 
-
-    // Apply slowdown if the shield is active.
-    float mod_delay_f = mode_delay;
+    // CHANGED: Replaced floating point calculation with direct integer multiplication.
+    // The original code used a float to multiply by 2.0, which is unnecessary.
     if (g_SlowDownActive)
-        mod_delay_f *= SLOWDOWN_FACTOR;
-    mode_delay = (u8)mod_delay_f;
-
+    {
+        mode_delay *= SLOWDOWN_FACTOR;
+    }
 
     /*
     if (g_PlayerShield > 0)
@@ -726,10 +727,11 @@ static void UpdatePlayerBullet(void)
 
     if (g_BulletGravityActive)
     {
-        // Gravity bullet: update velocity and position using simple physics.
-        g_BulletVelY += GRAVITY_ACCEL;  // accelerate downward
-        g_BulletY_f += g_BulletVelY;      // update position using velocity
-        g_BulletY = (u8)g_BulletY_f;      // convert to integer for display
+        // CHANGED: Replaced floating-point physics with fixed-point integer arithmetic.
+        // The lower 8 bits of the integers represent the fractional part.
+        g_BulletVelY_fp += GRAVITY_ACCEL_FP;     // Accelerate downward using fixed-point value.
+        g_BulletY_fp += g_BulletVelY_fp;         // Update fixed-point position using fixed-point velocity.
+        g_BulletY = (u8)(g_BulletY_fp >> 8);     // Convert to screen coordinate by dividing by 256 (shifting right by 8).
 
         // If the bullet has fallen back to (or below) the ship's row, remove it.
         if (g_BulletY >= SHIP_ROW)
@@ -1092,11 +1094,12 @@ static bool RunWave(void)
             }
             else if (g_BulletGravityActive)
             {
+                // CHANGED: Replaced floating-point initialization with fixed-point integer arithmetic.
                 // Gravity bullet mode: initialize bullet position and velocity.
                 g_BulletX = g_PlayerX;
-                g_BulletY_f = (float)SHIP_ROW;   // start at the ship's row
-                g_BulletVelY = -1.5f;            // give an initial upward speed
-                g_BulletY = (u8)g_BulletY_f;
+                g_BulletY_fp = (i16)SHIP_ROW << 8;      // Convert ship row to fixed-point format (multiply by 256).
+                g_BulletVelY_fp = GRAVITY_INITIAL_VELOCITY; // Use pre-calculated fixed-point value for -1.5.
+                g_BulletY = (u8)(g_BulletY_fp >> 8);
                 g_BulletSideways = false;
             }
             else
@@ -1176,6 +1179,7 @@ static bool RunWave(void)
     }
     return false; // Player died.
 }
+
 
 static void RunGameRound(void)
 {
@@ -1258,6 +1262,17 @@ void WaitVBlank()
     g_VBlank = FALSE;
 }
 
+// Deactivates all active power-ups and resets their timers.
+static void ResetAllPowerUps(void)
+{
+    g_WallWalkActive = false;
+    g_WallWalkTimer = 0;
+    g_SlowDownActive = false;
+    g_SlowDownTimer = 0;
+    g_BulletGravityActive = false;
+    g_BulletGravityTimer = 0;
+}
+
 //==============================================================================
 // MAIN FUNCTION
 //==============================================================================
@@ -1332,6 +1347,7 @@ void main(void)
         getHiScore();
         printGameOver();
         hideAllSprites();
+        ResetAllPowerUps();
     }
 
     Bios_Exit(0);
