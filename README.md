@@ -49,4 +49,5 @@ Follow these steps to set up the project:
      ./build.sh
      ```
 4. **ROM file**
+
    Generated rom file: ![mi.rom](emul/rom/mi.rom)
