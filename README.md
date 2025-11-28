@@ -2,9 +2,8 @@
 
 **Micro Invasion** is a space invaders style MSX1 game powered by the [MSXgl](https://github.com/aoineko-fr/MSXgl) graphics library.
 
-Screenshots
-![Intro Screen](figs/fig1.png)
-![About](figs/fig2.png)
+## Screenshots
+
 ![Game](figs/fig3.png)
 
 ## Prerequisites
