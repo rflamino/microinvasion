@@ -700,7 +700,8 @@ const Menu g_Menus[] =
     { "Micro Invasion", g_MenuMain, (sizeof(g_MenuMain) / sizeof(g_MenuMain[0])), NULL }
 };
 
-extern u8 g_MenuInputPrev; //from game menu lib
+//extern u8 g_MenuInputPrev; //from game menu lib
+u8 g_MenuInputPrev = 0;
 
 /* -------------------------------------------------------------------------
    Static internal variables for music, explosion, and FX state.
