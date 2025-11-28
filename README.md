@@ -1,6 +1,6 @@
 # Micro Invasion
 
-**Micro Invasion** is a space invaders style MSX1 game powered by the [MSXgl](https://github.com/aoineko-fr/MSXgl) graphics library.
+**Micro Invasion** is a space invaders style MSX1 game powered by the [MSXgl](https://github.com/aoineko-fr/MSXgl) graphics library. It has been tested and verified on authentic hardware, specifically the [MSX HotBit HB-8000](https://pt.wikipedia.org/wiki/HotBit_HB-8000).
 
 ## Screenshots
 
