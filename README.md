@@ -4,7 +4,8 @@
 
 ## Screenshots
 
-![Game](figs/fig3.png)
+![Game1](figs/fig3.png)
+![Game2](figs/fig4.png)
 
 ## Prerequisites
 
