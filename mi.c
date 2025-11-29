@@ -657,8 +657,6 @@ static void MoveEnemiesIfTime(void)
     u8 mode_delay = (ENEMY_MOVE_DELAY > g_Wave) ? (ENEMY_MOVE_DELAY - g_Wave) : ENEMY_MOVE_DELAY_MIN;
     mode_delay = (mode_delay < ENEMY_MOVE_DELAY_MIN) ? ENEMY_MOVE_DELAY_MIN : mode_delay;
 
-    // CHANGED: Replaced floating point calculation with direct integer multiplication.
-    // The original code used a float to multiply by 2.0, which is unnecessary.
     if (g_SlowDownActive)
     {
         mode_delay *= SLOWDOWN_FACTOR;
@@ -726,8 +724,6 @@ static void UpdatePlayerBullet(void)
 
     if (g_BulletGravityActive)
     {
-        // CHANGED: Replaced floating-point physics with fixed-point integer arithmetic.
-        // The lower 8 bits of the integers represent the fractional part.
         g_BulletVelY_fp += GRAVITY_ACCEL_FP;     // Accelerate downward using fixed-point value.
         g_BulletY_fp += g_BulletVelY_fp;         // Update fixed-point position using fixed-point velocity.
         g_BulletY = (u8)(g_BulletY_fp >> 8);     // Convert to screen coordinate by dividing by 256 (shifting right by 8).
