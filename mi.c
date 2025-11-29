@@ -1124,8 +1124,6 @@ static bool RunWave(void)
             }
             else if (g_BulletGravityActive)
             {
-                // CHANGED: Replaced floating-point initialization with fixed-point integer arithmetic.
-                // Gravity bullet mode: initialize bullet position and velocity.
                 g_BulletX = g_PlayerX;
                 g_BulletY_fp = (i16)SHIP_ROW << 8;      // Convert ship row to fixed-point format (multiply by 256).
                 g_BulletVelY_fp = GRAVITY_INITIAL_VELOCITY; // Use pre-calculated fixed-point value for -1.5.

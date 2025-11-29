@@ -492,12 +492,11 @@ static const MultiMusicStep g_IntroMusic[] =
 {
     //===========================================================================
     // Section 1: The famous motif “da-da-da-dum” (mid register)
-    // 3 quick staccato notes followed by a longer accented note.
     //===========================================================================
-    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  // Note 1: G3 (lead) with Ab3 (harmony)
-    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  // Note 2: repeat
-    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  // Note 3: repeat
-    { { NOTE_Ds3,  NOTE_G3  }, { 15, 10 }, 30 },  // Note 4: Eb3 (accent) with G3
+    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  
+    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  
+    { { NOTE_G3,   NOTE_As3 }, { 15, 10 }, 10 },  
+    { { NOTE_Ds3,  NOTE_G3  }, { 15, 10 }, 30 },  
 
     //===========================================================================
     // Section 2: Lower octave variation for contrast
