@@ -724,7 +724,7 @@ void StartStarfieldEntranceFX(void);
 void UpdateStarfieldEntranceFX(void);
 static void DrawBackground(void);
 const c8* MenuAction_GameStart(u8 op, i8 value);
-const c8* MenuAction_About(u8 op, i8 value);
+const c8* MenuAction_About(u8 op);
 static void HideSprite(u8 sprId);
 static void LoadCommonSpritePatterns(void);
 static void LoadEnemyPatternForWave(u8 wave);

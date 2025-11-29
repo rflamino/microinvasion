@@ -123,9 +123,8 @@ const c8* MenuAction_GameStart(u8 op, i8 value)
     return NULL;
 }
 
-const c8* MenuAction_About(u8 op, i8 value)
+const c8* MenuAction_About(u8 op)
 {
-    (void)value;  // Suppress "unused parameter" warning
 
     if (op == MENU_ACTION_SET)
     {
@@ -395,7 +394,7 @@ static void InitWaveEnemies(void)
 
 static void SetWaveBackdropColor(u8 wave)
 {
-    (void)wave;  // Suppress "unused parameter" warning
+    (void)wave;  // future use
 
     // Use a classic deep-space backdrop.
     VDP_SetColor2(COLOR_BLACK, COLOR_WHITE);
@@ -887,7 +886,7 @@ static void UpdateEnemyBullets(void)
 
 void UpdateBulletAnimation(u8 counter)
 {
-    (void)counter;  // Suppress "unused parameter" warning
+    (void)counter;  // future use
 
     u8 temp_buffer[8] = { 0 };
 
