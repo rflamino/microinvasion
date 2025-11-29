@@ -248,29 +248,64 @@ static void LoadEnemyPatternForWave(u8 wave)
     case 0:
         VDP_LoadSpritePattern(g_SpritePatternXInvader, PATTERN_ENEMY, 1);
         break;
+    default:
     }
 }
 
 static u8 GetEnemyColorForWave(u8 wave)
 {
+    u8 color;
+
     switch (wave % 12)
     {
-    case 1:  return COLOR_LIGHT_RED;
-    case 2:  return COLOR_LIGHT_BLUE;
-    case 3:  return COLOR_MAGENTA;
-    case 4:  return COLOR_DARK_GREEN;
-    case 5:  return COLOR_LIGHT_YELLOW;
-    case 6:  return COLOR_CYAN;
-    case 7:  return COLOR_MEDIUM_RED;
-    case 8:  return COLOR_DARK_YELLOW;
-    case 9:  return COLOR_LIGHT_GREEN;
-    case 10: return COLOR_GRAY;
-    case 11: return COLOR_MEDIUM_GREEN;
-    case 12: return COLOR_DARK_RED;
-    case 0:  return COLOR_DARK_BLUE;
-    default: return COLOR_WHITE;
+    case 1:  
+        color = COLOR_LIGHT_RED;    
+        break;
+    case 2:  
+        color = COLOR_LIGHT_BLUE;   
+        break;
+    case 3:  
+        color = COLOR_MAGENTA;      
+        break;
+    case 4:  
+        color = COLOR_DARK_GREEN;   
+        break;
+    case 5: 
+        color = COLOR_LIGHT_YELLOW; 
+        break;
+    case 6:  
+        color = COLOR_CYAN;         
+        break;
+    case 7:  
+        color = COLOR_MEDIUM_RED;   
+        break;
+    case 8:  
+        color = COLOR_DARK_YELLOW;  
+        break;
+    case 9:  
+        color = COLOR_LIGHT_GREEN;  
+        break;
+    case 10: 
+        color = COLOR_GRAY;         
+        break;
+    case 11: 
+        color = COLOR_MEDIUM_GREEN; 
+        break;
+    case 12: 
+        color = COLOR_DARK_RED;     
+        break;
+    case 0:  
+        color = COLOR_DARK_BLUE;    
+        break;
+    default: 
+        color = COLOR_WHITE;        
     }
+
+    return color;
 }
+
+
+
 
 static void InitAllSprites(void)
 {
